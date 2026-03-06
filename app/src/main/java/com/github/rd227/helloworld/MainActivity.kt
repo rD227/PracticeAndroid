@@ -60,7 +60,7 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                     text = from,
                     fontSize = 36.sp,
                     modifier = modifier
-                        .align(alignment = Alignment.CenterHorizontally)
+                        .align(alignment = Alignment.End)
                 )
             }
         }
