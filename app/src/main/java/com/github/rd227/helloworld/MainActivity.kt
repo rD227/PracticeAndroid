@@ -51,10 +51,10 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
             Column {
                 Text(
                     text = message,
-                    fontSize = 105.sp,
+                    fontSize = 100.sp,
                     modifier = modifier.padding(8.dp),
+                    textAlign = TextAlign.Center,
                     lineHeight = 120.sp,
-                    TextAlign = TextAlign.Center
                 )
                 Text(
                     text = from,
