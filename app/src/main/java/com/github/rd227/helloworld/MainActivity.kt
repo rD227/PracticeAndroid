@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
     //Row {
-        Surface(color = Color.Cyan) {
+        //Surface(color = Color.Cyan) {
             Column {
                 Text(
                     text = message,
@@ -67,17 +67,20 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                         .align(alignment = Alignment.End)
                 )
             }
-        }
+        //}
     //}
 }
 
 @Composable
 fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.androidparty)
-    Image(
-        painter = image,
-        contentDescription = null,
-    )
+    Box(Modifier) {
+        Image(
+            painter = image,
+            contentDescription = null,
+        )
+        GreetingText(message = message , from = from )
+    }
 }
 
 @Preview(showBackground = true)
