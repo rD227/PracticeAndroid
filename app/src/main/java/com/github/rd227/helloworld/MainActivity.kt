@@ -9,6 +9,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = colorScheme.background
                 ) {
+                    BirthdayCardPreview()
                 }
             }
         }
@@ -53,7 +55,11 @@ class MainActivity : ComponentActivity() {
 fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
     //Row {
         //Surface(color = Color.Cyan) {
-            Column {
+            Column (
+                verticalArrangement = Arrangement.Center,
+                //horizontalAlignment = Alignment.Center as Alignment.Horizontal,
+                modifier = modifier
+            ) {
                 Text(
                     text = message,
                     fontSize = 100.sp,
@@ -80,7 +86,9 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
             painter = image,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            alpha = 0.78F
+            alpha = 0.78F,
+            modifier = Modifier
+                .fillMaxSize()
         )
         GreetingText(message = message , from = from )
     }
@@ -90,9 +98,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 @Composable
 fun BirthdayCardPreview() {
     WelcomeApplicationTheme() {
-        //GreetingText()
         GreetingImage(message = "Happy Birthday Sam!", from = "From Emma")
-
     }
 }
 
