@@ -2,6 +2,7 @@ package com.github.rd227.helloworld
 
 
 //import android.media.Image
+import android.content.Intent
 import android.os.Bundle
 //import android.os.Message
 //import android.provider.MediaStore
@@ -27,12 +28,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import com.github.rd227.helloworld.ui.theme.WelcomeApplicationTheme
 
 
@@ -57,8 +60,8 @@ class MainActivity : ComponentActivity() {
 fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
     //Row {
         //Surface(color = Color.Cyan) {
-    var result = 1;
-            Column (
+    val context = LocalContext.current
+        Column (
                 verticalArrangement = Arrangement.Center,
                 //horizontalAlignment = Alignment.Center as Alignment.Horizontal,
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -80,7 +83,10 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                     modifier = Modifier
                         .align(alignment = Alignment.End)
                 )
-                Button(onClick = {} ,
+                Button(onClick = {
+                    val intent = Intent(context, SecondActivity::class.java)
+                    context.startActivity(intent)
+                } ,
                     modifier = Modifier.padding(
                         20.dp,
                         top = 100.dp,

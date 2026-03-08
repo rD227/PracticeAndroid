@@ -23,7 +23,7 @@ class SecondActivity : ComponentActivity() {
                     color = colorScheme.background
                 ) {
                     Text(text = "Second Activity")
-                    SecondActivity()
+                    SecondActivityPreview()
                 }
             }
         }
