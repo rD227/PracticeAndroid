@@ -57,6 +57,7 @@ class MainActivity : ComponentActivity() {
 fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
     //Row {
         //Surface(color = Color.Cyan) {
+    var result = 1;
             Column (
                 verticalArrangement = Arrangement.Center,
                 //horizontalAlignment = Alignment.Center as Alignment.Horizontal,
