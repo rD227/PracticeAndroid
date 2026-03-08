@@ -66,7 +66,7 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                 Text(
                     text = message,
                     fontSize = 100.sp,
-                    modifier = modifier.padding(
+                    modifier = Modifier.padding(
                         8.dp,
                         top = 50.dp,
                     ),
@@ -76,10 +76,17 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                 Text(
                     text = from,
                     fontSize = 36.sp,
-                    modifier = modifier
+                    modifier = Modifier
                         .align(alignment = Alignment.End)
                 )
-                Button(onClick ={}  ) { }
+                Button(onClick = {} ,
+                    modifier = Modifier.padding(
+                        20.dp,
+                        top = 100.dp,
+                        )
+                ) {
+                    Text(text = stringResource(R.string.click_me))
+                }
             }
         //}
     //}
