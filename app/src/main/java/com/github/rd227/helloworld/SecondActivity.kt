@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
@@ -29,6 +30,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -59,30 +62,37 @@ fun MainScreen() {
         // 主内容
         Column(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Speed Of Linking")
+            Text(text = "Speed Of Linking", modifier = Modifier.padding(top = 20.dp))
             
-            // 使用位图（Image）作为“按钮”
-            // 假设你已经把回形针图片放到了 res/drawable/paperclip.png
-            // 这里我先用 androidparty 作为演示，你可以换成你的图片名
-            Image(
-                painter = painterResource(id = R.drawable.link),
-                contentDescription = "打开菜单",
+            // 【修改部分】：让位图按钮拥有和普通按钮一样的底色和形状
+            Box(
                 modifier = Modifier
                     .padding(16.dp)
-                    .size(64.dp) // 控制位图大小
-                    .align(Alignment.End) // 放在右边
-                    .clickable { isMenuVisible = !isMenuVisible } // 让位图具备点击功能
-            )
+                    .align(Alignment.End)
+                    .size(56.dp) // 这里的 56dp 是 Material 3 悬浮按钮的标准尺寸
+                    .clip(CircleShape) // 圆形背景
+                    .background(MaterialTheme.colorScheme.primary) // 使用主题的主色调作为背景
+                    .clickable { isMenuVisible = !isMenuVisible }, // 点击功能移到 Box 上
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.link),
+                    contentDescription = "打开菜单",
+                    modifier = Modifier.size(28.dp), // 位图图标在按钮内的大小
+                    // 如果你想让位图颜色也随主题变化（比如变成白色以适应蓝色背景）：
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+                )
+            }
         }
 
         // 侧滑菜单（从右边滑出）
         AnimatedVisibility(
             visible = isMenuVisible,
-            enter = slideInHorizontally(initialOffsetX = { it }), // 从右往左进
-            exit = slideOutHorizontally(targetOffsetX = { it }),  // 从左往右出
+            enter = slideInHorizontally(initialOffsetX = { it }),
+            exit = slideOutHorizontally(targetOffsetX = { it }),
             modifier = Modifier.align(Alignment.CenterEnd)
         ) {
             Box(
