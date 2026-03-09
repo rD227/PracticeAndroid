@@ -68,7 +68,7 @@ fun MainScreen() {
             // 假设你已经把回形针图片放到了 res/drawable/paperclip.png
             // 这里我先用 androidparty 作为演示，你可以换成你的图片名
             Image(
-                painter = painterResource(id = R.drawable.androidparty), 
+                painter = painterResource(id = R.drawable.link),
                 contentDescription = "打开菜单",
                 modifier = Modifier
                     .padding(16.dp)
