@@ -48,7 +48,10 @@ fun SurroundButton(modifier: Modifier = Modifier) {
 
         },
             modifier = Modifier
-                .padding(start = 16.dp )
+                .padding(start = 280.dp ,
+                    top = 10.dp,
+
+                    )
                 .align(Alignment.End)
 
         ){
