@@ -82,7 +82,7 @@ fun MainScreen() {
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.link),
+                    painter = painterResource(id = R.drawable.gear),
                     contentDescription = "打开菜单",
                     modifier = Modifier.size(28.dp),
                     colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
