@@ -62,7 +62,8 @@ class SecondActivity : ComponentActivity() {
 @Composable
 fun MainScreen() {
     // 状态：菜单是否打开
-    var isMenuVisible by remember { mutableStateOf(false) }
+    var RightisMenuVisible by remember { mutableStateOf(false) }
+    var LeftMenuVisible by remember { mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize()) {
         // 主内容
@@ -78,7 +79,7 @@ fun MainScreen() {
                     .size(56.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary)
-                    .clickable { isMenuVisible = !isMenuVisible },
+                    .clickable { LeftMenuVisible = !LeftMenuVisible },
                 contentAlignment = Alignment.Center
             ) {
                 Image(
@@ -101,7 +102,7 @@ fun MainScreen() {
                     .size(56.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary)
-                    .clickable { isMenuVisible = !isMenuVisible },
+                    .clickable { RightisMenuVisible = !RightisMenuVisible },
                 contentAlignment = Alignment.Center
             ) {
                 Image(
@@ -117,7 +118,7 @@ fun MainScreen() {
         // 2. 中层：背景遮罩 (Scrim)
         // 当菜单可见时，显示一个半透明层，点击它会关闭菜单
         AnimatedVisibility(
-            visible = isMenuVisible,
+            visible = RightisMenuVisible,
             enter = fadeIn(),
             exit = fadeOut()
         ) {
@@ -130,14 +131,41 @@ fun MainScreen() {
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null
                     ) {
-                        isMenuVisible = false
+                        RightisMenuVisible = false
+                        LeftMenuVisible = false
                     }
             )
         }
 
         // 侧滑菜单（从右边滑出）
         AnimatedVisibility(
-            visible = isMenuVisible,
+            visible = RightisMenuVisible,
+            enter = slideInHorizontally(initialOffsetX = { it }) + fadeIn(),
+            exit = slideOutHorizontally(targetOffsetX = { it }) + fadeOut(),
+            modifier = Modifier.align(Alignment.TopEnd)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .width(250.dp)
+                    .background(colorScheme.surfaceVariant)
+                    .padding(16.dp)
+            ) {
+                Column {
+                    Text(text = "侧边菜单", style = MaterialTheme.typography.headlineSmall)
+                    Button(
+                        onClick = { RightisMenuVisible = false },
+                        modifier = Modifier.padding(top = 16.dp)
+                    ) {
+                        Text("关闭")
+                    }
+                    Text(text = "选项 1", modifier = Modifier.padding(top = 16.dp))
+                    Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
+                }
+            }
+        }
+        AnimatedVisibility(
+            visible = LeftMenuVisible,
             enter = slideInHorizontally(initialOffsetX = { -it }) + fadeIn(),
             exit = slideOutHorizontally(targetOffsetX = { -it }) + fadeOut(),
             modifier = Modifier.align(Alignment.TopEnd)
@@ -152,7 +180,7 @@ fun MainScreen() {
                 Column {
                     Text(text = "侧边菜单", style = MaterialTheme.typography.headlineSmall)
                     Button(
-                        onClick = { isMenuVisible = false },
+                        onClick = { LeftMenuVisible = false },
                         modifier = Modifier.padding(top = 16.dp)
                     ) {
                         Text("关闭")
