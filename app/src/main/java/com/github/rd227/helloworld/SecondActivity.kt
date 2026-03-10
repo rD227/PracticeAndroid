@@ -76,6 +76,7 @@ fun MainScreen() {
             Box(
                 modifier = Modifier
                     .padding(16.dp)
+                    .padding(top = 16.dp)
                     .size(56.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary)
@@ -99,6 +100,7 @@ fun MainScreen() {
             Box(
                 modifier = Modifier
                     .padding(16.dp)
+                    .padding(top = 16.dp)
                     .size(56.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary)
@@ -118,8 +120,7 @@ fun MainScreen() {
         // 2. 中层：背景遮罩 (Scrim)
         // 当菜单可见时，显示一个半透明层，点击它会关闭菜单
         AnimatedVisibility(
-            visible = RightisMenuVisible,
-            enter = fadeIn(),
+            visible = RightisMenuVisible || LeftMenuVisible,
             exit = fadeOut()
         ) {
             Box(
@@ -168,7 +169,7 @@ fun MainScreen() {
             visible = LeftMenuVisible,
             enter = slideInHorizontally(initialOffsetX = { -it }) + fadeIn(),
             exit = slideOutHorizontally(targetOffsetX = { -it }) + fadeOut(),
-            modifier = Modifier.align(Alignment.TopEnd)
+            modifier = Modifier.align(Alignment.TopStart)
         ) {
             Box(
                 modifier = Modifier
