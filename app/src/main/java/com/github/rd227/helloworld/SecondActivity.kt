@@ -12,6 +12,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -60,29 +61,48 @@ fun MainScreen() {
 
     Box(modifier = Modifier.fillMaxSize()) {
         // 主内容
-        Column(
+        Row(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(text = "Speed Of Linking", modifier = Modifier.padding(top = 20.dp))
-            
-            // 【修改部分】：让位图按钮拥有和普通按钮一样的底色和形状
+            // 【左侧按钮】
             Box(
                 modifier = Modifier
                     .padding(16.dp)
-                    .align(Alignment.End)
-                    .size(56.dp) // 这里的 56dp 是 Material 3 悬浮按钮的标准尺寸
-                    .clip(CircleShape) // 圆形背景
-                    .background(MaterialTheme.colorScheme.primary) // 使用主题的主色调作为背景
-                    .clickable { isMenuVisible = !isMenuVisible }, // 点击功能移到 Box 上
+                    .size(56.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary)
+                    .clickable { isMenuVisible = !isMenuVisible },
                 contentAlignment = Alignment.Center
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.link),
                     contentDescription = "打开菜单",
-                    modifier = Modifier.size(28.dp), // 位图图标在按钮内的大小
-                    // 如果你想让位图颜色也随主题变化（比如变成白色以适应蓝色背景）：
+                    modifier = Modifier.size(28.dp),
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+                )
+            }
+
+            Text(
+                text = "Speed Of Linking",
+                modifier = Modifier.padding(top = 32.dp)
+            )
+
+            // 【右侧按钮】
+            Box(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .size(56.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary)
+                    .clickable { isMenuVisible = !isMenuVisible },
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.link),
+                    contentDescription = "打开菜单",
+                    modifier = Modifier.size(28.dp),
                     colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
                 )
             }
