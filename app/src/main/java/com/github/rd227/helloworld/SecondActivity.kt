@@ -138,9 +138,9 @@ fun MainScreen() {
         // 侧滑菜单（从右边滑出）
         AnimatedVisibility(
             visible = isMenuVisible,
-            enter = slideInHorizontally(initialOffsetX = { it }),
-            exit = slideOutHorizontally(targetOffsetX = { it }),
-            modifier = Modifier.align(Alignment.CenterEnd)
+            enter = slideInHorizontally(initialOffsetX = { it }) + fadeIn(),
+            exit = slideOutHorizontally(targetOffsetX = { it }) + fadeOut(),
+            modifier = Modifier.align(Alignment.TopEnd)
         ) {
             Box(
                 modifier = Modifier
