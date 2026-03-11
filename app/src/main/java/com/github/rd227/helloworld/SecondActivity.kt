@@ -92,7 +92,7 @@ fun MainScreen() {
             }
 
             Text(
-                text = "Speed Of Linking",
+                text = "连接速度",
                 modifier = Modifier.padding(top = 32.dp)
             )
 
@@ -121,6 +121,7 @@ fun MainScreen() {
         // 当菜单可见时，显示一个半透明层，点击它会关闭菜单
         AnimatedVisibility(
             visible = RightisMenuVisible || LeftMenuVisible,
+            enter = fadeIn(),
             exit = fadeOut()
         ) {
             Box(
