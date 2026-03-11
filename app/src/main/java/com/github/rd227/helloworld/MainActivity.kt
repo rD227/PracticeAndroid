@@ -2,6 +2,7 @@ package com.github.rd227.helloworld
 
 
 //import android.media.Image
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 //import android.os.Message
@@ -56,6 +57,7 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
     //Row {
@@ -69,7 +71,7 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
             ) {
                 Text(
                     text = message,
-                    fontSize = 100.sp,
+                    fontSize = 90.sp,
                     modifier = Modifier.padding(
                         8.dp,
                         top = 50.dp,
@@ -88,11 +90,13 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                     context.startActivity(intent)
                 } ,
                     modifier = Modifier.padding(
-                        20.dp,
+                        30.dp,
                         top = 100.dp,
                         )
                 ) {
-                    Text(text = stringResource(R.string.click_me))
+                    Text(text = stringResource(R.string.click_me),
+                            fontSize = 16.sp,
+                        )
                 }
             }
         //}
