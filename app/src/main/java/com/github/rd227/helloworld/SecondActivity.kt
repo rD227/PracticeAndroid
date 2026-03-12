@@ -41,6 +41,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.github.rd227.helloworld.ui.theme.RoundFont
 import com.github.rd227.helloworld.ui.theme.WelcomeApplicationTheme
 
 class SecondActivity : ComponentActivity() {
@@ -154,7 +155,8 @@ fun MainScreen() {
                     .padding(16.dp)
             ) {
                 Column {
-                    Text(text = "侧边菜单", style = MaterialTheme.typography.headlineSmall)
+                    Text(text = "侧边菜单"/*, style = MaterialTheme.typography.headlineSmall*/,
+                        modifier = Modifier.padding(top = 10.dp))
                     Button(
                         onClick = { RightisMenuVisible = false },
                         modifier = Modifier.padding(top = 16.dp)
@@ -180,7 +182,8 @@ fun MainScreen() {
                     .padding(16.dp)
             ) {
                 Column {
-                    Text(text = "侧边菜单", style = MaterialTheme.typography.headlineSmall)
+                    Text(text = "侧边菜单"/*, style = MaterialTheme.typography.headlineSmall*/,
+                        modifier = Modifier.padding(top = 10.dp))
                     Button(
                         onClick = { LeftMenuVisible = false },
                         modifier = Modifier.padding(top = 16.dp)
