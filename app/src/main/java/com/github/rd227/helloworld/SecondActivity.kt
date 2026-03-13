@@ -1,11 +1,9 @@
 package com.github.rd227.helloworld
 
 import android.os.Bundle
-import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.copy
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
@@ -47,7 +45,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.github.rd227.helloworld.ui.theme.RoundFont
 import com.github.rd227.helloworld.ui.theme.WelcomeApplicationTheme
 
 class SecondActivity : ComponentActivity() {
@@ -161,18 +158,20 @@ fun MainScreen(
                     .fillMaxHeight()
                     .width(250.dp)
                     .background(colorScheme.surfaceVariant)
-                    .padding(16.dp)
             ) {
                 Column {
                     Text(text = "侧边菜单"/*, style = MaterialTheme.typography.headlineSmall*/,
-                        modifier = Modifier.padding(top = 10.dp))
+                        modifier = Modifier.padding(top = 10.dp)
+                            .padding(start = 10.dp)
+                    )
                     Button(
                         onClick = { RightisMenuVisible = false },
                         modifier = Modifier.padding(top = 16.dp)
+                        .padding(start = 10.dp)
                     ) {
                         Text("关闭")
                     }
-                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.gear),"Network connect",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.connectsetting),"Network connect",onClick = {})
                     Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
                 }
             }
@@ -220,22 +219,19 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(horizontal = 16.dp, vertical = 16.dp)
         ){
         Box(                modifier = Modifier
-            //.padding(16.dp)
-            //.padding(top = 16.dp)
-            .size(35.dp)
+            .size(40.dp)
             .clip(CircleShape)
-            .background(MaterialTheme.colorScheme.primary)
-            .clickable { onClick() },
+            .background(MaterialTheme.colorScheme.primary),
             contentAlignment = Alignment.Center
         ) {
             Icon(
                 imageVector = icon,
                 contentDescription = null,
-                tint = Color.White,
-                modifier = Modifier.padding(6.dp)
+                tint = MaterialTheme.colorScheme.onPrimary,
+                modifier = Modifier.padding(9.dp)
             )
         }
 
@@ -256,6 +252,9 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
 * Debug function
 *
 * */
+
+
+
 @Preview(showBackground = true)
 @Composable
 fun SecondActivityPreview() {
@@ -263,6 +262,8 @@ fun SecondActivityPreview() {
         MainScreen()
     }
 }
+
+/*
 @Preview(showBackground = true, name = "Right Menu Open")
 @Composable
 fun RightMenuOpenPreview() {
@@ -278,3 +279,4 @@ fun LeftMenuOpenPreview() {
         MainScreen(initialLeftVisible = true)
     }
 }
+*/
