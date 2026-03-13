@@ -203,6 +203,12 @@ fun MainScreen() {
         }
     }
 }
+/*
+*
+*
+* Module function
+*
+* */
 
 @Composable
 fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
@@ -213,9 +219,14 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
             .clickable(onClick = onClick)
             .padding(horizontal = 16.dp, vertical = 8.dp)
         ){
-        Surface(
-            shape = CircleShape,
-            modifier = Modifier.size(32.dp)
+        Box(                modifier = Modifier
+            .padding(16.dp)
+            //.padding(top = 16.dp)
+            .size(35.dp)
+            .clip(CircleShape)
+            .background(MaterialTheme.colorScheme.primary)
+            .clickable { onClick() },
+            contentAlignment = Alignment.Center
         ) {
             Icon(
                 imageVector = icon,
