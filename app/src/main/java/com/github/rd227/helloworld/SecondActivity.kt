@@ -44,6 +44,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.rd227.helloworld.ui.theme.RoundFont
@@ -168,12 +169,12 @@ fun MainScreen() {
                     ) {
                         Text("关闭")
                     }
-                    Text(text = "选项 1", modifier = Modifier.padding(top = 16.dp))
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.gear),"Network connect",onClick = {})
                     Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
                 }
             }
         }
-        AnimatedVisibility(
+        AnimatedVisibility(//left
             visible = LeftMenuVisible,
             enter = slideInHorizontally(initialOffsetX = { -it }) + fadeIn(),
             exit = slideOutHorizontally(targetOffsetX = { -it }) + fadeOut(),
