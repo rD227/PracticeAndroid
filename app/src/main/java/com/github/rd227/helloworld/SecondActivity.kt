@@ -67,10 +67,13 @@ class SecondActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    initialLeftVisible: Boolean = false,
+    initialRightVisible: Boolean = false
+) {
     // 状态：菜单是否打开
-    var RightisMenuVisible by remember { mutableStateOf(false) }
-    var LeftMenuVisible by remember { mutableStateOf(false) }
+    var RightisMenuVisible by remember { mutableStateOf(initialRightVisible) }
+    var LeftMenuVisible by remember { mutableStateOf(initialLeftVisible) }
 
     Box(modifier = Modifier.fillMaxSize()) {
         // 主内容
@@ -220,7 +223,7 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
             .padding(horizontal = 16.dp, vertical = 8.dp)
         ){
         Box(                modifier = Modifier
-            .padding(16.dp)
+            //.padding(16.dp)
             //.padding(top = 16.dp)
             .size(35.dp)
             .clip(CircleShape)
@@ -247,11 +250,31 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
         )
     }
 }
-
+/*
+*
+*
+* Debug function
+*
+* */
 @Preview(showBackground = true)
 @Composable
 fun SecondActivityPreview() {
     WelcomeApplicationTheme {
         MainScreen()
+    }
+}
+@Preview(showBackground = true, name = "Right Menu Open")
+@Composable
+fun RightMenuOpenPreview() {
+    WelcomeApplicationTheme {
+        MainScreen(initialRightVisible = true)
+    }
+}
+
+@Preview(showBackground = true, name = "Left Menu Open")
+@Composable
+fun LeftMenuOpenPreview() {
+    WelcomeApplicationTheme {
+        MainScreen(initialLeftVisible = true)
     }
 }
