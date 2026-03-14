@@ -28,7 +28,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MaterialTheme.colorScheme
+//import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -56,7 +56,8 @@ class SecondActivity : ComponentActivity() {
             WelcomeApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = colorScheme.background//建议移除 import androidx.compose.material3.MaterialTheme.colorScheme，统一使用 MaterialTheme.colorScheme
+                    color = androidx . compose . material3 . MaterialTheme.colorScheme.background
+//建议移除 import androidx.compose.material3.MaterialTheme.colorScheme，统一使用 MaterialTheme.colorScheme
                 ) {
                     MainScreen()
                 }
@@ -170,17 +171,19 @@ fun MainScreen(
                 modifier = Modifier
                     .fillMaxHeight()
                     .width(250.dp)
-                    .background(colorScheme.surfaceVariant)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
             ) {
                 Column {
                     Text(text = "侧边菜单"/*, style = MaterialTheme.typography.headlineSmall*/,
-                        modifier = Modifier.padding(top = 10.dp)
+                        modifier = Modifier
+                            .padding(top = 10.dp)
                             .padding(start = 10.dp)
                     )
                     Button(
                         onClick = { RightisMenuVisible = false },
-                        modifier = Modifier.padding(top = 16.dp)
-                        .padding(start = 10.dp)
+                        modifier = Modifier
+                            .padding(top = 16.dp)
+                            .padding(start = 10.dp)
                     ) {
                         Text("关闭")
                     }
@@ -204,7 +207,7 @@ fun MainScreen(
                 modifier = Modifier
                     .fillMaxHeight()
                     .width(250.dp)
-                    .background(colorScheme.surfaceVariant)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
             ) {
                 Column {
                     Text(text = "侧边菜单"/*, style = MaterialTheme.typography.headlineSmall*/,
