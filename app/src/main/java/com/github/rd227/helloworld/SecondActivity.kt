@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
@@ -38,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -54,7 +56,7 @@ class SecondActivity : ComponentActivity() {
             WelcomeApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = colorScheme.background
+                    color = colorScheme.background//建议移除 import androidx.compose.material3.MaterialTheme.colorScheme，统一使用 MaterialTheme.colorScheme
                 ) {
                     MainScreen()
                 }
@@ -71,6 +73,13 @@ fun MainScreen(
     // 状态：菜单是否打开
     var RightisMenuVisible by remember { mutableStateOf(initialRightVisible) }
     var LeftMenuVisible by remember { mutableStateOf(initialLeftVisible) }
+
+    // 【新增】定义齿轮旋转动画
+    // 当 LeftMenuVisible 改变时，角度会在 0f 和 180f 之间平滑过渡
+    val gearRotation by animateFloatAsState(
+        targetValue = if (LeftMenuVisible || RightisMenuVisible) 180f else 0f,
+        label = "GearRotation"
+    )
 
     Box(modifier = Modifier.fillMaxSize()) {
         // 主内容
@@ -93,7 +102,9 @@ fun MainScreen(
                 Image(
                     painter = painterResource(id = R.drawable.gear),
                     contentDescription = "打开菜单",
-                    modifier = Modifier.size(28.dp),
+                    modifier = Modifier
+                        .size(28.dp)
+                        .rotate(gearRotation), // 【应用旋转动画】
                     colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
                 )
             }
@@ -117,7 +128,9 @@ fun MainScreen(
                 Image(
                     painter = painterResource(id = R.drawable.link),
                     contentDescription = "打开菜单",
-                    modifier = Modifier.size(28.dp),
+                    modifier = Modifier
+                        .size(28.dp)
+                        .rotate(gearRotation), // 【应用旋转动画】
                     colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
                 )
             }
