@@ -216,7 +216,8 @@ fun MainScreen(
                     ) {
                         Text("关闭")
                     }
-                    Text(text = "选项 1", modifier = Modifier.padding(top = 16.dp))
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.authentication),"Authentication",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.authentication),"Authentication",onClick = {})
                     Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
                 }
             }
