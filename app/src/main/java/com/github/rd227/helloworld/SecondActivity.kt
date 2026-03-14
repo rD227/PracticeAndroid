@@ -189,7 +189,7 @@ fun MainScreen(
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.cleaner),"Clean cache",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.outline_dialogs_24),"Client logs",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.outline_fingerprint_24),"Finger print",onClick = {})
-                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.key),"Verification Key",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.thinkey),"Verification Key",onClick = {})
                     Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
                 }
             }
