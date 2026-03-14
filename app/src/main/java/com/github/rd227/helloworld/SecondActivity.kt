@@ -184,7 +184,7 @@ fun MainScreen(
                     ) {
                         Text("关闭")
                     }
-                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.connectsetting),"Network connect",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.connectsetting),"Network status",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.outline_barcode_scanner_24),"Scan code",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.cleaner),"Clean cache",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.outline_dialogs_24),"Client logs",onClick = {})
