@@ -271,11 +271,11 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
 *
 * */
 
-@Preview(showBackground = true, name = "Right Menu Open")
+@Preview(showBackground = true, name = "Left Menu Open")
 @Composable
-fun RightMenuOpenPreview() {
+fun LeftMenuOpenPreview() {
     WelcomeApplicationTheme {
-        MainScreen(initialRightVisible = true)
+        MainScreen(initialLeftVisible = true)
     }
 }
 
@@ -288,13 +288,13 @@ fun SecondActivityPreview() {
 }
 
 /*
-
-
-@Preview(showBackground = true, name = "Left Menu Open")
+@Preview(showBackground = true, name = "Right Menu Open")
 @Composable
-fun LeftMenuOpenPreview() {
+fun RightMenuOpenPreview() {
     WelcomeApplicationTheme {
-        MainScreen(initialLeftVisible = true)
+        MainScreen(initialRightVisible = true)
     }
 }
+
+
 */
