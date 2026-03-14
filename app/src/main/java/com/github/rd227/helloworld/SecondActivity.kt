@@ -205,7 +205,6 @@ fun MainScreen(
                     .fillMaxHeight()
                     .width(250.dp)
                     .background(colorScheme.surfaceVariant)
-                    .padding(16.dp)
             ) {
                 Column {
                     Text(text = "侧边菜单"/*, style = MaterialTheme.typography.headlineSmall*/,
@@ -217,7 +216,7 @@ fun MainScreen(
                         Text("关闭")
                     }
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.authentication),"Authentication",onClick = {})
-                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.authentication),"Authentication",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.port),"How to connect",onClick = {})
                     Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
                 }
             }
