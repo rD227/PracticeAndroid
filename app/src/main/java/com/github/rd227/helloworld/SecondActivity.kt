@@ -185,6 +185,11 @@ fun MainScreen(
                         Text("关闭")
                     }
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.connectsetting),"Network connect",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.outline_barcode_scanner_24),"Scan code",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.cleaner),"Clean cache",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.outline_dialogs_24),"Client logs",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.outline_fingerprint_24),"Finger print",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.key),"Verification Key",onClick = {})
                     Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
                 }
             }
@@ -232,7 +237,7 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 16.dp)
+            .padding(horizontal = 16.dp, vertical = 13.dp)
         ){
         Box(                modifier = Modifier
             .size(40.dp)
@@ -266,7 +271,13 @@ fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
 *
 * */
 
-
+@Preview(showBackground = true, name = "Right Menu Open")
+@Composable
+fun RightMenuOpenPreview() {
+    WelcomeApplicationTheme {
+        MainScreen(initialRightVisible = true)
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
@@ -277,13 +288,7 @@ fun SecondActivityPreview() {
 }
 
 /*
-@Preview(showBackground = true, name = "Right Menu Open")
-@Composable
-fun RightMenuOpenPreview() {
-    WelcomeApplicationTheme {
-        MainScreen(initialRightVisible = true)
-    }
-}
+
 
 @Preview(showBackground = true, name = "Left Menu Open")
 @Composable
