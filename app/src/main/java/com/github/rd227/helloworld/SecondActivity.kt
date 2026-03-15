@@ -56,7 +56,7 @@ class SecondActivity : ComponentActivity() {
             WelcomeApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = androidx . compose . material3 . MaterialTheme.colorScheme.background
+                    color = androidx.compose.material3.MaterialTheme.colorScheme.background
 //建议移除 import androidx.compose.material3.MaterialTheme.colorScheme，统一使用 MaterialTheme.colorScheme
                 ) {
                     MainScreen()
@@ -220,7 +220,7 @@ fun MainScreen(
                     }
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.authentication),"Authentication",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.port),"How to connect",onClick = {})
-                    Text(text = "选项 2", modifier = Modifier.padding(top = 16.dp))
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.uisetting_coarse),"UI setting",onClick = {})
                 }
             }
         }
