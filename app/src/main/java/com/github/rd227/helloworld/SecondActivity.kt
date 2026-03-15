@@ -221,6 +221,7 @@ fun MainScreen(
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.authentication),"Authentication",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.port),"How to connect",onClick = {})
                     RowClick(icon = ImageVector.vectorResource(id = R.drawable.uisetting_coarse),"UI setting",onClick = {})
+                    RowClick(icon = ImageVector.vectorResource(id = R.drawable.system),"System",onClick = {})
                 }
             }
         }
