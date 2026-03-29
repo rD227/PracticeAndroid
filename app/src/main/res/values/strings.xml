@@ -1,6 +1,27 @@
 <resources>
     <string name="app_name">WelcomeApplication</string>
-    <string name="happy_birthday_sam">Happy Birthday Sam!</string>
+    <!-- 补齐报错的字符串 -->
+    <string name="prefsCategoryTitleAuth">认证设置</string>
+    <string name="prefSummaryAnonymousLogin">允许匿名登录</string>
+    <string name="prefTitleAnonymousLogin">匿名登录</string>
+    <string name="prefTitleUser">用户名</string>
+    <string name="prefSummaryUser">输入登录用户名</string>
+    <string name="prefTitlePassword">密码</string>
+    <string name="prefSummaryPassword">输入登录密码</string>
+    <string name="prefTitlePubKeyAuth">公钥认证</string>
+    <string name="prefSummaryPubKeyAuth_v2">使用 SSH 公钥</string>
+    <string name="prefsCategoryTitleConnectivity">连接设置</string>
+    <string name="prefTitleWhichServerToStart">选择服务器</string>
+    <string name="prefSummaryWhichServerToStart">设置启动哪个服务器</string>
+    <string name="test">简单测试，没有报错！</string>
+    <string name="click_me">Click me</string>
+    <string name="happy_birthday_sam">Happy birthday Sam</string>
     <string name="from_emma">From Emma</string>
-    <string name="click_me">Click Me</string>
+
+    <!-- 补齐报错的数组 -->
+    <string-array name="prefWhichServerToStartNames">
+        <item>服务器 A</item>
+        <item>服务器 B</item>
+    </string-array>
 </resources>
+    
