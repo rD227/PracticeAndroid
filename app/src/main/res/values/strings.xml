@@ -13,7 +13,7 @@
     <string name="prefsCategoryTitleConnectivity">连接设置</string>
     <string name="prefTitleWhichServerToStart">选择服务器</string>
     <string name="prefSummaryWhichServerToStart">设置启动哪个服务器</string>
-    <string name="test">简单测试，没有报错！</string>
+    <string name="test">TEST</string>
     <string name="click_me">Click me</string>
     <string name="happy_birthday_sam">Happy birthday Sam</string>
     <string name="from_emma">From Emma</string>
