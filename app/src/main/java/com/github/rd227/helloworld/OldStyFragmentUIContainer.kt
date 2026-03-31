@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
@@ -29,6 +31,12 @@ fun OldStyFragmentUIPreview() {
         },
         modifier = Modifier.fillMaxSize()
     )
+
+    //e.g this in @Compose can't use requireContext()
+    val context = LocalContext.current
+    val myComposeView = ComposeView(context).apply{
+
+    }
 }
 
 
