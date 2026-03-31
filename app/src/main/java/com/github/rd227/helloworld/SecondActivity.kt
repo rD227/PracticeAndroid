@@ -230,47 +230,6 @@ fun MainScreen(
 /*
 *
 *
-* Module function
-*
-* */
-
-@Composable
-fun RowClick(icon: ImageVector, text:String,onClick: () -> Unit){
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 13.dp)
-        ){
-        Box(                modifier = Modifier
-            .size(40.dp)
-            .clip(CircleShape)
-            .background(MaterialTheme.colorScheme.primary),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onPrimary,
-                modifier = Modifier.padding(9.dp)
-            )
-        }
-
-
-        Spacer(modifier = Modifier.width(16.dp))
-
-        // 右侧文字
-        Text(
-            text = text,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurface
-        )
-    }
-}
-/*
-*
-*
 * Debug function
 *
 * */
