@@ -4,6 +4,7 @@ package com.github.rd227.helloworld
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -76,8 +77,11 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                         .align(alignment = Alignment.End)
                 )
                 Button(onClick = {
-                    val intent = Intent(context, SecondActivity::class.java)
-                    context.startActivity(intent)
+                    val intent = Intent(context,
+                        SecondActivity::class.java)
+                    context.startActivity(intent);
+
+                    //Toast.makeText(this, "test", Toast.LENGTH_LONG).show()
                 } ,
                     modifier = Modifier.padding(
                         30.dp,
