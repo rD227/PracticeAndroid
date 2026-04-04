@@ -79,12 +79,12 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                 Button(onClick = {
                     val intent = Intent(context,
                         SecondActivity::class.java)
-                    context.startActivity(intent);
+                    context.startActivity(intent)
 
-                    //Toast.makeText(this, "test", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "test", Toast.LENGTH_LONG).show()
                 } ,
                     modifier = Modifier.padding(
-                        30.dp,
+                        10.dp,
                         top = 100.dp,
                         )
                 ) {
