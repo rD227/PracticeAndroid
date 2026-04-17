@@ -25,18 +25,20 @@ class OldStyFragmentUIContainer : Fragment() {
 @Preview
 @Composable
 fun OldStyFragmentUIPreview() {
+    val context = LocalContext.current
+    //It seems it will automatically use it if you didn't declare it
     AndroidView(
-        factory = { context ->
-            LayoutInflater.from(context).inflate(R.layout.preferences, null)
+        factory = {// context ->
+            val parent = android.widget.FrameLayout(context)
+            LayoutInflater.from(context).inflate(
+                R.layout.preferences,
+                parent,
+                false
+            )
         },
         modifier = Modifier.fillMaxSize()
     )
-
-    //e.g this in @Compose can't use requireContext()
-    val context = LocalContext.current
-    val myComposeView = ComposeView(context).apply{
-
-    }
 }
+
 
 
