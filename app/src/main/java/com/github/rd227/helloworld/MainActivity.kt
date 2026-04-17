@@ -18,6 +18,11 @@ import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -29,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.rd227.helloworld.ui.theme.WelcomeApplicationTheme
+import com.squareup.wire.internal.countNonNull
 
 
 class MainActivity : ComponentActivity() {
@@ -54,6 +60,12 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
     //Row {
         //Surface(color = Color.Cyan) {
     val context = LocalContext.current
+    var clickCount by remember { mutableIntStateOf(0) }
+    var clickCountObjectStable = dataClass().clickCountStable
+    var prefsClick = context.getSharedPreferences("clickCountPrefs", ComponentActivity.MODE_PRIVATE)
+
+    // 它会将数据保存到 Bundle 中，能在配置更改或简单的进程重启后恢复
+    var stableClickCount by rememberSaveable { mutableIntStateOf(0) }
         Column (
                 verticalArrangement = Arrangement.Center,
                 //horizontalAlignment = Alignment.Center as Alignment.Horizontal,
@@ -80,17 +92,20 @@ fun GreetingText(message: String,modifier: Modifier = Modifier,from: String) {
                     val intent = Intent(context,
                         SecondActivity::class.java)
                     context.startActivity(intent)
-
                     Toast.makeText(context, "test", Toast.LENGTH_LONG).show()
+                    clickCount++
+                    clickCountObjectStable++
+                    stableClickCount++
                 } ,
                     modifier = Modifier.padding(
                         10.dp,
                         top = 100.dp,
                         )
                 ) {
-                    Text(text = stringResource(R.string.click_me),
-                            fontSize = 16.sp,
-                        )
+                    Text(
+                        text = (stringResource(R.string.click_me) + " $clickCount times" + " $clickCountObjectStable" + " $stableClickCount"),
+                        fontSize = 16.sp,
+                    )
                 }
             }
         //}
