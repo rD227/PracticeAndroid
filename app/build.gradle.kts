@@ -60,8 +60,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.datastore.preferences.core)
+    implementation(libs.androidx.datastore.preferences.v111)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.preference.ktx)
+
 }
